@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/audit-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/cache-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/common-lib/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/inventory-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/notification-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/payment-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/medical-inventory-system/supplier-service/src/main/java" charset="UTF-8" />
+  </component>
+</project>
