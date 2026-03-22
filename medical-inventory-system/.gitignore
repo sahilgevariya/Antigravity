@@ -1,0 +1,27 @@
+# Compiled class files
+*.class
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+*.factorypath
+
+# Maven
+*.log
+dependency-reduced-pom.xml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker/volumes/
+
+# Environment
+.env
+*.pem

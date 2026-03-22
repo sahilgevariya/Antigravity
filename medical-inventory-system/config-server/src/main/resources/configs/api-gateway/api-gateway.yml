@@ -1,0 +1,55 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+      routes:
+        # Auth Service
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/v1/auth/**, /api/v1/users/**
+        # Inventory Service - REST
+        - id: inventory-service
+          uri: lb://inventory-service
+          predicates:
+            - Path=/api/v1/inventory/**
+        # Inventory Service - GraphQL
+        - id: inventory-graphql
+          uri: lb://inventory-service
+          predicates:
+            - Path=/graphql/inventory, /graphiql/inventory
+        # Order Service
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/v1/orders/**
+        # Supplier Service
+        - id: supplier-service
+          uri: lb://supplier-service
+          predicates:
+            - Path=/api/v1/suppliers/**, /api/v1/purchase-orders/**
+        # Payment Service
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/api/v1/payments/**, /api/v1/transactions/**
+        # Audit Service - REST
+        - id: audit-service-rest
+          uri: lb://audit-service
+          predicates:
+            - Path=/api/v1/reports/**
+        # Audit Service - GraphQL
+        - id: audit-graphql
+          uri: lb://audit-service
+          predicates:
+            - Path=/graphql/audit, /graphiql/audit

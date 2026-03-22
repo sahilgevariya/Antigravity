@@ -1,0 +1,53 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:inventorydb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+# Caffeine local cache
+spring.cache:
+  caffeine:
+    spec: maximumSize=1000,expireAfterWrite=600s
+
+# gRPC client to cache-service
+grpc:
+  client:
+    cache-service:
+      address: discovery:///cache-service
+      negotiation-type: plaintext
+
+# Springdoc
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+# Zipkin tracing
+management:
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
