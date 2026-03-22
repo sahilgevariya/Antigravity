@@ -1,0 +1,58 @@
+type Query {
+    productById(id: ID!): Product
+    productBySku(sku: String!): Product
+    allProducts(page: Int = 0, size: Int = 20): ProductPage!
+    searchProducts(query: String!, page: Int = 0, size: Int = 20): ProductPage!
+    productsByCategory(categoryId: ID!, page: Int = 0, size: Int = 20): ProductPage!
+    stockByProduct(productId: ID!): [Stock!]!
+    lowStockItems: [Stock!]!
+    expiringItems(daysAhead: Int = 30): [Stock!]!
+}
+
+type Product {
+    id: ID!
+    name: String!
+    sku: String!
+    barcode: String
+    description: String
+    categoryId: ID!
+    categoryName: String!
+    unitPrice: Float!
+    unitOfMeasurement: String!
+    manufacturer: String
+    requiresPrescription: Boolean!
+    controlled: Boolean!
+    minStockLevel: Int!
+    maxStockLevel: Int!
+    reorderPoint: Int!
+    totalStock: Int!
+    active: Boolean!
+    createdAt: String
+    updatedAt: String
+}
+
+type ProductPage {
+    content: [Product!]!
+    page: Int!
+    size: Int!
+    totalElements: Long!
+    totalPages: Int!
+    first: Boolean!
+    last: Boolean!
+}
+
+type Stock {
+    id: ID!
+    productId: ID!
+    productName: String!
+    productSku: String!
+    locationId: ID!
+    locationName: String!
+    quantity: Int!
+    batchNumber: String
+    expiryDate: String
+    lastRestocked: String
+    updatedAt: String
+}
+
+scalar Long
